@@ -6,7 +6,7 @@ class Article(models.Model):
     article = models.CharField(max_length=200, verbose_name='Тема')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
     create_date = models.DateField(auto_now_add=True, verbose_name='Время создания')
-    user = models.ForeignKey('User', max_length=40, verbose_name='Автор', related_name='articles')
+    user = models.ForeignKey('User', max_length=40, on_delete=models.PROTECT, verbose_name='Автор', related_name='articles')
 
     def __str__(self):
         return self.article
