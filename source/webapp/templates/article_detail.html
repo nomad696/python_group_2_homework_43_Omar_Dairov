@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Статья{% endblock %}
+
+
+{% block menu %}
+<li><a href="{% url 'remove_article' %}">Удалить статью</a></li>
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ article.article }}</h1>
+    <p>{{ article.description }}</p>
+    <h5>Статьи</h5>
+    {% for issue in article.issues.all %}
+        <p>{{ issue.title }} ({{ issue.status }})</p>
+    {% endfor %}
+    <h5>Пользователи</h5>
+    {% for user in articl.users.all %}
+        <p>{{ user.first_name }} {{ user.last_name }} ({{ user.email }})</p>
+    {% endfor %}
+{% endblock %}

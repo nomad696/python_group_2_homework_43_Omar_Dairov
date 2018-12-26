@@ -1,11 +1,12 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Article(models.Model):
     article = models.CharField(max_length=200, verbose_name='Тема')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
-    create_date = models.DateField(auto_now_add=True, verbose_name='Время создания')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     user = models.ForeignKey('User', max_length=40, on_delete=models.PROTECT, verbose_name='Автор', related_name='articles')
 
     def __str__(self):
@@ -38,7 +39,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
     phone = models.CharField(max_length=20, verbose_name="Телефон")
     email = models.EmailField(max_length=50, verbose_name="Почта")
-    favourite = models.ManyToManyField(Article, related_name='users', verbose_name='Статьи')
+    favourite = models.ManyToManyField(Article, related_name='users', verbose_name='Статьи', blank=True)
 
     def __str__(self):
         return "%s. %s %s" % (self.pk, self.first_name, self.last_name)

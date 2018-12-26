@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete article{% endblock %}
+
+{% block content %}
+    <h3>Вы уверены, что хотите удалить статью?</h3>
+    <form method="post">
+        {% csrf_token %}
+        <input type="radio" value="yes" name="delete"> Да<br>
+        <input type="radio" value="no" checked name="delete"> Нет<br>
+        <input type="submit" value="Подтвердить">
+    </form>
+
+{% endblock %}
