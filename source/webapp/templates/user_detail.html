@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Пользователь{% endblock %}
+
+{% block menu %}
+<li><a href="{% url 'user_delete' user.pk %}">Удалить пользователя</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Личные данные пользователя</h1>
+    <p>Имя: <b>{{ user.first_name }}</b></p>
+    <p>Фамилия: <b>{{ user.last_name }}</b></p>
+    <p>Почта: <b>{{ user.email }}</b></p>
+    <p>Тел. номер: <b>{{ user.phone }}</b></p>
+    <p>Избранные статьи: <b>{{ user.favourite }}</b></p>
+{% endblock %}

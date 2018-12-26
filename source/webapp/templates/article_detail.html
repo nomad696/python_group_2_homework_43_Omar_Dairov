@@ -3,7 +3,7 @@
 
 
 {% block menu %}
-<li><a href="{% url 'remove_article' %}">Удалить статью</a></li>
+<li><a href="{% url 'remove_article' article.pk %}">Удалить статью</a></li>
 {% endblock %}
 
 
@@ -15,7 +15,7 @@
         <p>{{ issue.title }} ({{ issue.status }})</p>
     {% endfor %}
     <h5>Пользователи</h5>
-    {% for user in articl.users.all %}
+    {% for user in article.users.all %}
         <p>{{ user.first_name }} {{ user.last_name }} ({{ user.email }})</p>
     {% endfor %}
 {% endblock %}

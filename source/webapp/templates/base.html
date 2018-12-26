@@ -14,6 +14,9 @@
         <ul class="menu">
             <li><a href="{% url 'article_list' %}">На главную</a></li>
             <li><a href="{% url 'create_article' %}">Добавить статью</a></li>
+            <li><a href="{% url 'user_list' %}">Пользователи</a></li>
+            <li><a href="{% url 'user_create' %}">Добавить пользователя</a></li>
+
             {% block menu %}{% endblock %}
         </ul>
     </nav>
