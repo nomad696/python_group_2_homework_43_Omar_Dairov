@@ -41,10 +41,12 @@ a:hover, a:visited {
 
 .menu li a {
     display: inline-block;
+    margin-left: 4px;
 }
 
 .menu li a:hover {
     color: #ffc122;
+    margin: 4px;
 }
 
 h1 {

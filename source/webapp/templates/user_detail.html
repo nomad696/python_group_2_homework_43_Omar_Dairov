@@ -11,5 +11,13 @@
     <p>Фамилия: <b>{{ user.last_name }}</b></p>
     <p>Почта: <b>{{ user.email }}</b></p>
     <p>Тел. номер: <b>{{ user.phone }}</b></p>
-    <p>Избранные статьи: <b>{{ user.favourite }}</b></p>
+{#    <p>Избранные статьи: <b>{{ user.favourite }}</b></p>#}
+    <p>Статьи пользователя:</p>
+    {% for article in user.articles.all %}
+        <h4>{{ article.article }}</h4>
+    {% endfor %}
+    <p>Избранные статьи пользователя:</p>
+    {% for favourite in user.favourites.all %}
+        <h4>{{ favourite.user }}</h4>
+    {% endfor %}
 {% endblock %}

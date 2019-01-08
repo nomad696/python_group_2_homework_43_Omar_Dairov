@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Добавить оценку{% endblock %}
+
+{% block content %}
+    <h1>Новый оценка</h1>
+    <form action="{% url 'issue_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary ml-3">Сохранить</button>
+    </form>
+{% endblock %}

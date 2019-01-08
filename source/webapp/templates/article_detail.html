@@ -10,12 +10,13 @@
 {% block content %}
     <h1>{{ article.article }}</h1>
     <p>{{ article.description }}</p>
-    <h5>Статьи</h5>
+    <h5>Автор: <b>{{ article.user.first_name }} {{ article.user.last_name }} ({{ article.user.email }}</b> </h5>
+    <h5>Оценка <a href="{% url 'issue_create' %}"> <button type="submit" class="btn btn-primary ml-3">Поставить оценку</button></a></h5>
     {% for issue in article.issues.all %}
-        <p>{{ issue.title }} ({{ issue.status }})</p>
+        <p>{{ issue.user }} ({{ issue.status }})</p>
     {% endfor %}
-    <h5>Пользователи</h5>
-    {% for user in article.users.all %}
-        <p>{{ user.first_name }} {{ user.last_name }} ({{ user.email }})</p>
+    <h5>Комментарии <a href="{% url 'comment_create' %}"><button type="submit" class="btn btn-primary ml-3">Оставить комментарии</button></a></h5>
+    {% for comment in article.comment.all %}
+        <p>{{ comment.user }}: {{ comment.comment }}</p>
     {% endfor %}
 {% endblock %}

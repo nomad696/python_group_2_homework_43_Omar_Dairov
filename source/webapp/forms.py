@@ -1,5 +1,5 @@
 from django import forms
-from webapp.models import Article, User
+from webapp.models import Article, User, Comment, Issue
 
 class ArticleForm(forms.ModelForm):
     class Meta:
@@ -27,3 +27,13 @@ class UserCreateForm(forms.ModelForm):
 
         def get_create(self):
             return User('user_detail', kwargs={'pk':self.pk})
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment', 'article', 'user']
+
+class IssueForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['article', 'user', 'status']
